@@ -11,13 +11,12 @@ import java.time.Duration;
 public class amazonConfigurationHW {
 
     public static WebDriver driver;
-
+    @Test
     public static void getDriver(String url) throws InterruptedException {
         driver = new ChromeDriver();
         driver.get(url);
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
-        driver.get(url);
     }
     public static void driverClose() throws InterruptedException{
             driver.close();// to close the website from the browser

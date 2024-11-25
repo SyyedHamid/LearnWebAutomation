@@ -3,7 +3,8 @@ package Applications;
 import configurations.amazonConfigurationHW;
 import org.openqa.selenium.By;
 import org.testng.Assert;
-import org.testng.annotations.Test;
+
+import java.time.Duration;
 
 public class amazonhw extends amazonConfigurationHW {
 
@@ -17,8 +18,9 @@ public class amazonhw extends amazonConfigurationHW {
     }
 
 
-    public static void typeInSearchBox() {
-        driver.findElement(By.xpath("//*[@id=\"twotabsearchtextbox\"]")).sendKeys("pant");
+    public static void typeInSearchBox(String TypeItem) {
+        driver.findElement(By.xpath("//*[@id=\"twotabsearchtextbox\"]")).sendKeys(TypeItem);
+
 
     }
 
@@ -27,8 +29,8 @@ public class amazonhw extends amazonConfigurationHW {
 
     }
 
-    public static void searchValidItem() {
-        driver.findElement(By.xpath("//*[@id=\"twotabsearchtextbox\"]")).sendKeys("cap");//fix it by call
+    public static void searchValidItem(String validItem) {
+        driver.findElement(By.xpath("//*[@id=\"twotabsearchtextbox\"]")).sendKeys(validItem);//fix it by call
         clickOnSearching();
 
     }
@@ -49,32 +51,34 @@ public class amazonhw extends amazonConfigurationHW {
 
     }
 
-    public static void SeeMedicalCareService() {
+    public static void SeeMedicalCareService()  {
 
         driver.findElement(By.xpath("//*[@id=\"nav_link_allhealthingress\"]/span[1]")).click();
 
     }
 
-    public static void SeenewreleaseItems() {
+    public static void SeeNewReleaseItems() {
 
         driver.findElement(By.xpath("//*[@id=\"nav-hamburger-menu\"]/i")).click();
-        //Thread.sleep(1000);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
         driver.findElement(By.xpath("//*[@id=\"hmenu-content\"]/ul[1]/li[3]/a")).click();
 
     }
 
-    public static void moversShakers() throws InterruptedException {
+    public static void seeMoversShakers() throws InterruptedException {
 
-        driver.findElement(By.xpath("//*[@id=\"nav-hamburger-menu\"]/i")).click();
-        //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+        driver.findElement(By.xpath("//*[@id=\"nav-hamburger-menu\"]")).click();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+        driversleep();
         driver.findElement(By.xpath("//*[@id=\"hmenu-content\"]/ul[1]/li[4]/a")).click();
 
     }
 
-    public static void subscribeSave() {
+    public static void subscribeSave() throws InterruptedException{
 
         driver.findElement(By.xpath("//*[@id=\"nav-hamburger-menu\"]/i")).click();
-        //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+        driversleep();
         driver.findElement(By.xpath("//*[@id=\"hmenu-content\"]/ul[1]/li[28]/a")).click();
 
     }
